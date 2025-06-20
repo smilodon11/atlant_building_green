@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://img.hhcdn.ru/employer-logo/1957867.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Atlant Building KZ</title>
+    <style>
+        /* Общие стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Хедер */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .header-list{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header-list button{
+            width: 100px;
+            height: 30px;
+            border: 3px #4caf50 solid;
+            border-radius: 5px;
+            background-color: transparent;
+            margin-left: 15px;
+            padding-right: 5px
+        }
+
+        .header-list button li{
+            text-align: left;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            color: #2d5016;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: #4caf50;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #4caf50;
+        }
+        
+        /* Баннер */
+        .banner {
+            background: linear-gradient(rgba(45, 80, 22, 0.7), rgba(45, 80, 22, 0.7)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            color: #fff;
+            text-align: center;
+            padding: 150px 0;
+        }
+        
+        .banner h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .banner p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #4caf50;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #45a049;
+        }   
+        
+        /* О нас */
+        .about {
+            padding: 80px 0;
+            background-color: #f9f9f9; /* Легкий фон для контраста */
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: #2d5016;
+            position: relative;
+            padding-bottom: 15px;
+            font-weight: 700; /* Сделать заголовок более выразительным */
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: #4caf50;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap; /* Добавим адаптивность */
+        }
+
+        .about-text {
+            flex: 1;
+            padding-right: 20px; /* Добавим отступ справа */
+        }
+
+        .about-text p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px; /* Добавим отступы между абзацами */
+        }
+
+        .about-text strong {
+            color: #2d5016;
+            font-weight: 600;
+        }
+
+        .about-text ul {
+            list-style: none;
+            padding-left: 0;
+            margin-left: 20px;
+        }
+
+        .about-text ul li {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .about-text ul li::before {
+            content: '✔'; /* Добавим иконку для каждого пункта */
+            position: absolute;
+            left: -20px;
+            top: 0;
+            color: #4caf50;
+        }
+
+        .about-image {
+            flex: 1;
+            max-width: 500px; /* Ограничим ширину изображения */
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out; /* Плавное увеличение при наведении */
+        }
+
+        .about-image img:hover {
+            transform: scale(1.05); /* Увеличение изображения при наведении */
+        }
+
+        /* Адаптивная верстка */
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .about-text {
+                padding-right: 0;
+            }
+
+            .about-image img {
+                width: 90%;
+                height: auto; /* Для лучшего отображения на маленьких экранах */
+            }
+        }
+
+        
+        /* Услуги */
+        .services {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        /* .service-card:hover .service-image img {
+            transform: scale(1.1);
+        } */
+        
+        .service-content {
+            padding: 20px;
+        }
+        
+        .service-content h3 {
+            margin-bottom: 10px;
+            color: #2d5016;
+        }
+            /* Проекты */
+            .projects {
+                padding: 80px 0;
+            }
+
+            .projects-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 40px;
+            }
+
+            .project-card {
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Тень для карточки */
+                transition: transform 0.3s ease-in-out; /* Плавное увеличение карточки */
+                display: flex;
+                flex-direction: column; /* Расположение картинки и текста вертикально */
+                padding-bottom: 50px;
+               -webkit-box-shadow: 5px 4px 8px 0px rgba(34, 60, 80, 0.2);
+                -moz-box-shadow: 5px 4px 8px 0px rgba(34, 60, 80, 0.2);
+                box-shadow: 5px 4px 8px 0px rgba(34, 60, 80, 0.2);
+                text-align: center;
+            }
+
+            .project-image {
+                width: 100%;
+                height: 200px; /* Фиксированная высота для изображения */
+                overflow: hidden;
+            }
+
+            .project-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.3s; /* Плавное увеличение изображения */
+            }
+
+            .project-content {
+                padding: 20px;
+                background: #fff;
+                flex: 1; /* Чтобы контент растягивался на оставшуюся высоту */
+            }
+
+            .project-content h3 {
+                margin-bottom: 10px;
+                font-size: 22px;
+                font-weight: 600;
+            }
+
+            .project-overlay h4{
+            margin-top: 10px;
+            color: #2d5016;
+            }
+
+            .project-content p {
+                font-size: 16px;
+                color: #555;
+            }
+
+            .project-card:hover {
+            transform: translateY(-10px);
+        }
+                    
+        
+        /* Отзывы */
+        .testimonials {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #e8f5e8 0%, #f1f8e9 100%);
+        }
+        
+        .testimonials-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .testimonials-slider {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f8f8 100%);
+            padding: 30px 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(45, 80, 22, 0.1);
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(45, 80, 22, 0.15);
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 60px;
+            color: #4caf50;
+            opacity: 0.3;
+            font-family: serif;
+        }
+        
+        .testimonial-text {
+            margin-bottom: 25px;
+            font-style: italic;
+            color: #555;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #4caf50;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+            color: #2d5016;
+            font-weight: 600;
+            font-size: 18px;
+        }
+        
+        .author-info p {
+            color: #777;
+            font-size: 14px;
+        }
+        
+        .rating {
+            margin-top: 15px;
+            display: flex;
+            gap: 3px;
+        }
+        
+        .star {
+            color: #ffc107;
+            font-size: 18px;
+        }
+        
+        /* Контакты */
+        .contact {
+            padding: 80px 0;
+        }
+        
+        .contact-content {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-form {
+            flex: 2;
+        }
+        
+        .contact-item {
+            display: flex;
+            margin-bottom: 30px;
+        }
+        
+        .contact-icon {
+            margin-right: 15px;
+            width: 50px;
+            height: 50px;
+            background-color: #4caf50;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+        }
+        
+        .contact-details h4 {
+            margin-bottom: 5px;
+            color: #2d5016;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        textarea.form-control {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+        
+        /* Футер */
+        footer {
+            background-color: #2d5016;
+            color: #fff;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-column h3 {
+            color: #fff;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #4caf50;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #4caf50;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: #fff;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: #4caf50;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Адаптивная верстка */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-content {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+            }
+            
+            nav ul li {
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+            
+            .banner h2 {
+                font-size: 36px;
+            }
+            
+            .testimonials-slider {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .banner {
+                padding: 100px 0;
+            }
+            
+            .banner h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Хедер -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>Atlant<span>Building</span> KZ</h1>
+                </div>
+                <nav>
+                    <ul class="header-list">
+                        <button><li><a href="#home">Главная</a></li></button>
+                        <button><li><a href="#about">О нас</a></li></button>
+                        <button><li><a href="#services">Услуги</a></li></button>
+                        <button><li><a href="#projects">Проекты</a></li></button>
+                        <button><li><a href="#testimonials">Отзывы</a></li></button>
+                       <button><li><a href="#contact">Контакты</a></li></button>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Баннер -->
+    <section id="home" class="banner">
+        <div class="container">
+            <h2>Строим будущее вместе</h2>
+            <p>Компания Atlant Building KZ - ваш надежный партнер в сфере строительства. Мы предлагаем полный спектр строительных услуг от проектирования до сдачи объекта "под ключ".</p>
+
+        </div>
+    </section>
+
+    <!-- О нас -->
+<section id="about" class="about">
+    <div class="container">
+        <div class="section-title">
+            <h2>О компании</h2>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Компания <strong>Atlant Building KZ</strong> была основана в 2010 году и за это время зарекомендовала себя как надежный партнер в сфере строительства. Мы специализируемся на строительстве жилых, коммерческих и промышленных объектов.</p>
+                <p>В наш состав входит 250 высококвалифицированных профессионалов, 5 главенствующих отделов, каждый из которых отвечает за свои направления в строительстве. Также мы сотрудничаем с другими строительными организациями, поставляющими нам специалистов, спецтехнику и свои услуги различной сложности.</p>
+                <p>Каждый объект строится под наблюдением профессионалов, от этапа проектирования до этапа сдачи. Поэтому наши объекты пользуются большим спросом и хорошими отзывами потребителей, а нашу компанию знают как надежных и ответственных застройщиков.</p>
+                <p><strong>Наши принципы:</strong></p>
+                <ul>
+                    <li>Качество выполнения работ</li>
+                    <li>Соблюдение сроков</li>
+                    <li>Использование современных технологий</li>
+                    <li>Индивидуальный подход к каждому клиенту</li>
+                </ul>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="О компании Atlant Building KZ">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Услуги -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Наши услуги</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="./images/zhilstroy.jpg" alt="Жилищное строительство">
+                    </div>
+                    <div class="service-content">
+                        <h3>Жилищное строительство</h3>
+                        <p>Строительство жилых домов, коттеджей, многоквартирных домов и жилых комплексов "под ключ".</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="./images/v2.jpg" alt="Коммерческое строительство">
+                    </div>
+                    <div class="service-content">
+                        <h3>Коммерческое строительство</h3>
+                        <p>Строительство офисных зданий, торговых центров, гостиниц и других коммерческих объектов.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="./images/zavod.jpg" alt="Промышленное строительство">
+                    </div>
+                    <div class="service-content">
+                        <h3>Промышленное строительство</h3>
+                        <p>Строительство заводов, складов, логистических центров и других промышленных объектов.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="./images/proekt.jpg" alt="Проектирование">
+                    </div>
+                    <div class="service-content">
+                        <h3>Проектирование</h3>
+                        <p>Разработка архитектурных проектов, проектной документации и технического сопровождения.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="./images/remont.jpg" alt="Ремонтные работы">
+                    </div>
+                    <div class="service-content">
+                        <h3>Ремонтные работы</h3>
+                        <p>Капитальный ремонт и реконструкция зданий и сооружений различного назначения.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="./images/server.jpg" alt="Инженерные сети">
+                    </div>
+                    <div class="service-content">
+                        <h3>Инженерные сети</h3>
+                        <p>Монтаж и обслуживание инженерных сетей: водоснабжение, канализация, отопление, электрика.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Проекты -->
+    <section id="projects" class="projects">
+    <div class="container">
+        <div class="section-title">
+            <h2>Наши проекты</h2>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="./images/atlant.jpg" alt="Жилой комплекс 'Атлант'">
+                </div>
+                <div class="project-overlay">
+                    <h4>Жилой комплекс "Атлант"</h4>
+                    <p>Современный жилой комплекс из 5 блоков по 3 этажа в центре города.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="./images/imgbis.jpg" alt="Бизнес-центр 'Нурлы'">
+                </div>
+                <div class="project-overlay">
+                    <h4>Бизнес-центр "Нурлы"</h4>
+                    <p>Современный бизнес-центр класса А площадью 15 000 кв. м.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="./images/almaty.jpg" alt="Логистический центр 'Алматы'">
+                </div>
+                <div class="project-overlay">
+                    <h4>Логистический центр "Алматы"</h4>
+                    <p>Современный логистический центр площадью 30 000 кв. м.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="./images/torg.jpg" alt="Торговый центр 'Азия Парк'">
+                </div>
+                <div class="project-overlay">
+                    <h4>Торговый центр "Азия Парк"</h4>
+                    <p>Многофункциональный торгово-развлекательный центр площадью 50 000 кв. м.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="./images/otel.jpg" alt="Гостиница 'Астана'">
+                </div>
+                <div class="project-overlay">
+                    <h4>Гостиница "Астана"</h4>
+                    <p>Современная гостиница на 200 номеров в центре столицы.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="./images/zeldol.jpg" alt="Коттеджный поселок 'Зеленая Долина'">
+                </div>
+                <div class="project-overlay">
+                    <h4>Коттеджный поселок "Зеленая Долина"</h4>
+                    <p>Элитный коттеджный поселок из 50 домов со всей инфраструктурой.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Отзывы -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Отзывы клиентов</h2>
+            </div>
+            <div class="testimonials-container">
+                <div class="testimonials-slider">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            <p>Работал с компанией Atlant Building KZ по строительству коттеджа. Очень доволен результатом. Все было сделано качественно и в срок. Особенно хочу отметить профессионализм сотрудников и четкое соблюдение всех договоренностей.</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Асан Кайратов">
+                            </div>
+                            <div class="author-info">
+                                <h4>Асан Кайратов</h4>
+                                <p>Владелец коттеджа</p>
+                            </div>
+                        </div>
+                        <div class="rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            <p>Наша компания заказывала строительство офисного здания. Atlant Building KZ выполнили все работы на высшем уровне. Были учтены все наши пожелания, а сам процесс строительства был максимально прозрачным. Рекомендую!</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://avatars.mds.yandex.net/get-kinopoisk-image/4303601/b33f8fed-3c7d-4c8f-9d34-5efd0229d5d1/220x330" alt="Динара Сатпаева">
+                            </div>
+                            <div class="author-info">
+                                <h4>Динара Сатпаева</h4>
+                                <p>Генеральный директор "Казахстан Групп"</p>
+                            </div>
+                        </div>
+                        <div class="rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Контакты</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Телефон</h4>
+                            <p>+7 707 340 00 77</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fa fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Электронная почта</h4>
+                            <p>atlantbuildingkz@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fa fa-map-marker"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Адрес</h4>
+                            <p>г. Караганда, ул. Нуркена     Абдирова 32</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Свяжитесь с нами</h3>
+                    <form action="#">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Ваш email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Сообщение" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Отправить сообщение</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+</body>
+</html>
